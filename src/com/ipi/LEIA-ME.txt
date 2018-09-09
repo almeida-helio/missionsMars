@@ -1,0 +1,34 @@
+INSTRUÇÕES DE USO
+Arquivo mars.py:
+	-Garanta que o arquivo de entrada esteja no mesmo diretório do arquivo mars.py
+	-Digite o nome do arquivo de entrada incluindo sua extensão (ex: exemplo.bmp)
+
+Arquivo microbiology.py:
+	-Garanta que o arquivo de entrada esteja no mesmo diretório do arquivo microbiology.py
+	-Digite o nome do arquivo de entrada incluindo sua extensão (ex.: exemplo.tif)
+
+----------------------------------------------------------------------------------------------
+RESULTADOS
+Arquivo mars.py:
+	-As imagens Mars(gray).png, Mars(gray-equalization).png, PathDotted.png foram geradas a
+	partir da entrada "Mars.bmp".
+	-O algoritmo informa quandos movimentos o robô deveria executar e qual a distância eucli-
+	diana entre cada pixel por onde ele passaria
+
+	FUNCIONAMENTO:
+	-O algoritmo começa analisando o pixel de origem e analisa seus 8 vizinhos
+	-Após escolher os 3 vizinhos mais próximos do pixel destino, define-se como próximo pixel
+	a ser analisado o que possui menor nível de cinza
+	-Repete-se até que se alcance o destino
+	*OBS.: Caso se deseje priorizar os pixels com maiores níveis de cinza , basta trocar todos
+	os caracteres '<' por '>' nas estruturas de condição a partir da linha 151 até a linha 157.
+
+Arquivo microbiology.py:
+	-O algoritmo informa quantos componentes conectados existem na imagem
+	-O algoritmo informa quantos buracos tem dentro dos componentes conectados
+
+	FUNCIONAMENTO:
+	-O algoritmo analisa a imagem de entrada
+	-Para contar o número de buracos dentro dos componentes conectados, faz-se o negativo da ima-
+	gem original
+	-O algoritmo analisa a imagem já com as cores invertidas
