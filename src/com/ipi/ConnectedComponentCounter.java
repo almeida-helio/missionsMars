@@ -23,7 +23,6 @@ public class ConnectedComponentCounter {
                 }
             }
         }
-        System.out.println(countObject);
         return countObject;
     }
 

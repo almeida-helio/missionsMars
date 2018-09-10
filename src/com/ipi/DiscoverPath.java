@@ -7,9 +7,9 @@ import java.util.List;
 
 public class DiscoverPath {
 
-    public static void calculePath (int[] initialPosition, int[] finalPosition, BufferedImage eqImage, BufferedImage orImage) {
+    public static double [] calculePath (int[] initialPosition, int[] finalPosition, BufferedImage eqImage, BufferedImage orImage) {
         if (validationPair(initialPosition) || validationPair(finalPosition)) {
-            return;
+            return null;
         }
 
         Point[][] points = getPoints(eqImage);
@@ -29,12 +29,12 @@ public class DiscoverPath {
                 break;
             }
         }
-        System.out.println("foots: " + foots);
-        System.out.println("distance: " + distance);
+        double [] result = {foots, distance};
+        return result;
     }
 
 
-    public static void drawPath (BufferedImage image, int[] pass){
+    private static void drawPath (BufferedImage image, int[] pass){
 
         image.setRGB(pass[0], pass[1], 0);
     }
@@ -77,9 +77,9 @@ public class DiscoverPath {
         List<Point> selected = new ArrayList<>();
 
         // Escolha e calcule a distancia dos 100 pontos(no maximo) mais proximos da posicaoo atual ate o destino
-        for (int j = current[1] - 2; j <= (current[1] + 20); j++) {
+        for (int j = current[1] - 1; j <= (current[1] + 1); j++) {
 
-            for (int i = current[0] - 2; i <= (current[0] + 20); i++) {
+            for (int i = current[0] - 1; i <= (current[0] + 1); i++) {
                 if (!points[i][j].wasVisited()) {
                     int[] neighbour = {points[i][j].getX(), points[i][j].getY()};
                     points[i][j].setDistance(distancePair(neighbour, destiny));
@@ -88,21 +88,9 @@ public class DiscoverPath {
                 }
             }
         }
-        // Reduza a lista aos 8 pontos com menor distancia
-        return filterEightMinors(selected);
-    }
-
-    // Escolha os 8 pontos com menor distancia da origem
-    private static List<Point> filterEightMinors(List<Point> points) {
-        List<Point> selected = new ArrayList<>();
-        threeMinors(points, selected, true);
-        threeMinors(points, selected, true);
-        threeMinors(points, selected, true);
-        // Neste ponto selected contem 9 pontos ordenados crescentemente por distancia, remova o com maior distancia
-        // Ou seja o ultimo
-        selected.remove(selected.size() - 1);
         return selected;
     }
+
 
     // Calcula a distancia de um par
     private static double distancePair(int[] current, int [] destiny) {
@@ -123,7 +111,7 @@ public class DiscoverPath {
             if (selected.get(choosen).getDistance() == 0) {
                 choosen = i;
                 break;
-            } else if (selected.get(choosen).getValue() < selected.get(i).getValue()) {
+            } else if (selected.get(choosen).getValue() > selected.get(i).getValue()) {
                 choosen = i;
             }
         }
