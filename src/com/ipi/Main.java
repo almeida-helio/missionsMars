@@ -59,7 +59,7 @@ public class Main {
         grayscaleImage = ImageManager.toGrayScale(image);
         equalizedImage = Equalization.equalize(grayscaleImage);
         double [] result = DiscoverPath.calculePath(INITIAL_POSITION, FINAL_POSITION, equalizedImage, image);
-        System.out.printf("O numero de passos dados e: %.2f. A distancia total percorrida e de %.2f\n", result[0], result[1]);
+        System.out.printf("O numero de pixels percorridos ate o destino e de %.0f. A distancia total percorrida e de %.2f\n", result[0], result[1]);
         try {
             String path = DEFAULT_PATH + "Result-"+ LocalDateTime.now().toString() + ".bmp";
             FileManager.write(image, path);
