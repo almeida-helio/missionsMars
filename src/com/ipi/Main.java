@@ -13,11 +13,8 @@ public class Main {
     public static void main(String[] args)  {
         BufferedImage imagem, imagemGrayScale, imagemEqualizada;
         try {
-            imagem = FileManager.read("src/com/ipi/Mars.bmp");
-            imagemGrayScale =  ImageManager.toGrayScale(imagem);
-            imagemEqualizada = Equalization.equalize(imagemGrayScale);
-            DiscoverPath.calculePath(INITIAL_POSITION, FINAL_POSITION, imagemEqualizada, imagem);
-            FileManager.write(imagem, "src/com/ipi/tests/" + getName() +".bmp");
+            imagem = FileManager.read("src/com/ipi/spots.tif");
+            FindLife.find(imagem);
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }

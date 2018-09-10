@@ -35,6 +35,7 @@ public class DiscoverPath {
 
 
     public static void drawPath (BufferedImage image, int[] pass){
+
         image.setRGB(pass[0], pass[1], 0);
     }
 

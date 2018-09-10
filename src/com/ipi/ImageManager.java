@@ -21,4 +21,22 @@ public class ImageManager {
         return escalaCinza;
     }
 
+
+    // Transforma a imagem recebida no seu negativo
+    public static void getNegative (BufferedImage image){
+        for(int y = 0; y < image.getHeight(); y++){
+            for(int x = 0; x < image.getWidth(); x++){
+                int p = image.getRGB(x,y);
+                int a = (p>>24)&0xff;
+                int r = (p>>16)&0xff;
+                int g = (p>>8)&0xff;
+                int b = p&0xff;
+                r = 255 - r;
+                g = 255 - g;
+                b = 255 - b;
+                p = (a<<24) | (r<<16) | (g<<8) | b;
+                image.setRGB(x, y, p);
+            }
+        }
+    }
 }
