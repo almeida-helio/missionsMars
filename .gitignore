@@ -1,9 +1,1 @@
-out/*
-.idea/*
-.editorconfig
-ipi.iml
-.classpath
-.project
-ipi.eml
-src/META-INF/
-
+informacoes.info

@@ -12,9 +12,16 @@ Observações:
         FindLife path:
             Não gera arquivos de saída
     [3]Na pasta finalImages se encontram as imagens geradas pelo algoritmo
-
+    [4]Foi utilizado o versionador de código git e o presente trabalho se encontra hospedado no github:
+        https://github.com/helioAlmeida/missionsMars
+    [5]No arquivo informacoes.info, este não versionado, se encontram dados do aluno
 Ambiente: 
+    #Informações do java
     java version "1.8.0_181"
     Java(TM) SE Runtime Environment (build 1.8.0_181-b13)
     Java HotSpot(TM) 64-Bit Server VM (build 25.181-b13, mixed mode)
+    #Informações do S.O.
     Linux Mint 19 Cinnamon
+    #Informações do Git
+    git version 2.17.1
+
